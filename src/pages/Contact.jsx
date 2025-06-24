@@ -41,19 +41,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'info@bladetech.com',
+      value: 'holabladetech@gmail.com',
       description: 'Respuesta en 24 horas'
     },
     {
       icon: Phone,
       title: 'Teléfono',
-      value: '+1 (555) 123-4567',
+      value: '+52 (777) 445-72-53',
       description: 'Lun - Vie, 9:00 - 18:00'
     },
     {
       icon: MapPin,
       title: 'Ubicación',
-      value: 'Ciudad, País',
+      value: 'Morelos, Mexico',
       description: 'Oficina principal'
     },
     {
@@ -73,26 +73,44 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "¡Mensaje enviado exitosamente!",
-        description: "Nos pondremos en contacto contigo pronto. Gracias por tu interés.",
-      });
-      
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        service: '',
-        message: ''
-      });
-      setIsSubmitting(false);
-    }, 2000);
-  };
+  try {
+    // URL de tu Web App de Apps Script (la obtendrás después de desplegar)
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbyATqhGK1zK-dXqtjem85k-6sxhaESsBgB11VkFC5pze5nQFluonZ6CRCHf9-VPikU7/exec';
+    
+    const response = await fetch(scriptUrl, {
+      method: 'POST',
+      mode: 'no-cors', // Necesario para comunicación con Apps Script
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    toast({
+      title: "¡Mensaje enviado exitosamente!",
+      description: "Nos pondremos en contacto contigo pronto. Gracias por tu interés.",
+    });
+    
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      service: '',
+      message: ''
+    });
+  } catch (error) {
+    toast({
+      title: "Error al enviar el mensaje",
+      description: "Por favor intenta nuevamente más tarde.",
+      variant: "destructive"
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const handleSocialClick = (platform) => {
     toast({
@@ -344,7 +362,7 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -378,7 +396,7 @@ const Contact = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
