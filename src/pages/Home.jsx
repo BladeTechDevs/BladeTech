@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-
+import blade from "@/img/blade.jpg"; // Assuming you have a blade image in your assets
 const Home = () => {
   const { toast } = useToast();
 
@@ -288,7 +288,7 @@ const Home = () => {
               <img
                 alt="Tecnología y automatización empresarial"
                 className="w-full h-auto rounded-2xl shadow-xl"
-                src="/src/img/blade.jpg"
+                src={blade}
               />
             </motion.div>
 
