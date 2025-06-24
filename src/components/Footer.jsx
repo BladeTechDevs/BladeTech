@@ -16,6 +16,8 @@ import {
   Twitter,
 } from "lucide-react";
 
+import lobob from "@/assets/services/lobob.svg";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -42,7 +44,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
                 <img
-                  src="/src/img/logo_b_corregido.svg"
+                  src={lobob}
                   className="w-10 h-10"
                   alt=""
                 />
