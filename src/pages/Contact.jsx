@@ -78,9 +78,9 @@ const Contact = () => {
 
   try {
     // URL de tu Web App de Apps Script (la obtendrás después de desplegar)
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbyATqhGK1zK-dXqtjem85k-6sxhaESsBgB11VkFC5pze5nQFluonZ6CRCHf9-VPikU7/exec';
     
-    const response = await fetch(scriptUrl, {
+    // URL de tu Web App de Apps Script (la obtendrás después de desplegar)
+    const response = await fetch("https://script.google.com/macros/s/AKfycbw6xipv_pBp1HXHzEz4cYw1bnhRrYVdThIm-2tRSxqkda8chVv1v4VCpo7bv7Fz1Vsc/exec", {
       method: 'POST',
       mode: 'no-cors', // Necesario para comunicación con Apps Script
       headers: {
