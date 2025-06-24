@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {B} from "@/assets/services/B.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +40,7 @@ const Navbar = () => {
             <div className="relative">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
                 {/* <Zap className="w-6 h-6 text-white" /> */}
-                <img src="/src/img/logo_b_corregido.svg" alt="" />
+                <img src={B} alt="" />
               </div>
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-400 rounded-full animate-pulse"></div>
             </div>
